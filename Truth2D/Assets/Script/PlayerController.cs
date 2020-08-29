@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
- 
+using System.Collections;
+
 // 1. Player Move: 
 // 2. Player Jump:
 // 3. Player 
@@ -11,8 +12,13 @@ public class PlayerController : MonoBehaviour {
     public Transform playerTransform = null;
     public float speed = 1;
     public Animator playerMovement = null;
-    public GameObject flower = null;
-    public GameObject seeding = null;
+
+    public Seeding seeding = null;
+
+    public Camera m_Camera;
+    public GameObject diePos;
+
+    public int stage;
     
     [HeaderAttribute("Ground checker")]
     #region ground checker
@@ -36,6 +42,8 @@ public class PlayerController : MonoBehaviour {
         //Calling Components\\
  
         rb = GetComponent<Rigidbody> ();
+
+        stage = 1; 
     }
  
     //Initiate at a set time\\
@@ -45,18 +53,41 @@ public class PlayerController : MonoBehaviour {
         Move(); 
         CheckIfGrounded();
         Jump();
-        Flower();
+        MoveCamera();
+        CheckDie();
+        RayTest();
     } 
- 
-    //Pick-up Collision\\
-    void Flower()
+
+    void RayTest()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            seeding.SetActive(false);
-            flower.SetActive(true);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if(hit.collider != null && hit.transform.tag == "Seed")
+            {
+                seeding.MouseClick();
+            }
+        }
+        
+    }
+
+    void MoveCamera()
+    {
+        if (isDie) return;
+        m_Camera.transform.position = Vector3.Lerp(m_Camera.transform.position , new Vector3(transform.position.x, transform.position.y, m_Camera.transform.position.z) , 1f);
+
+        if(Input.mouseScrollDelta.y > 0 && m_Camera.orthographicSize > 5)
+        {
+            m_Camera.orthographicSize -= 0.1f;
+        }
+        else if (Input.mouseScrollDelta.y < 0 && m_Camera.orthographicSize < 8)
+        {
+            m_Camera.orthographicSize += 0.1f;
         }
     }
+ 
+
     void Move() 
     { 
         // float x = Input.GetAxisRaw("Horizontal"); 
@@ -69,6 +100,7 @@ public class PlayerController : MonoBehaviour {
         ChangeDirection();
 
     }
+    
     void Animation()
     {
         playerMovement.SetBool("isWalking", Input.GetAxis ("Horizontal") != 0);
@@ -111,4 +143,24 @@ public class PlayerController : MonoBehaviour {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); 
     }
 
+    IEnumerator ReBorn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        transform.position = new Vector3(diePos.transform.position.x, diePos.transform.position.y, transform.position.z);
+        isDie = false;
+    }
+
+    bool isDie = false;
+    void CheckDie()
+    {
+        if(stage == 1)
+        {
+            if(transform.position.y < -9)
+            {
+                if (isDie) return;
+                isDie = true;
+                StartCoroutine(ReBorn());
+            }
+        }
+    }
 }
