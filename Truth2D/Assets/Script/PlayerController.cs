@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     public Camera m_Camera;
     public GameObject diePos;
+    public GameObject bullet;
 
     public int stage;
     
@@ -56,11 +57,12 @@ public class PlayerController : MonoBehaviour {
         MoveCamera();
         CheckDie();
         RayTest();
+        Shoot();
     } 
 
     void RayTest()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(1))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -161,6 +163,20 @@ public class PlayerController : MonoBehaviour {
                 isDie = true;
                 StartCoroutine(ReBorn());
             }
+        }
+    }
+
+    void Shoot()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
+            Vector2 direction = myPos - target;
+            direction.Normalize();
+            GameObject projectile = (GameObject)Instantiate(bullet, myPos, Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().velocity = - direction * 20;
+            Destroy(projectile, 2);
         }
     }
 }
