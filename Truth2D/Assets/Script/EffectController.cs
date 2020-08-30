@@ -12,6 +12,8 @@ public class EffectController : MonoBehaviour
     public AudioSource flowerGrownMaxSE = null;
     public GameObject flowerTimber = null;
     public AudioSource flowerTimberSE = null;
+    public GameObject lionEat = null;
+    public AudioSource lionEatSE = null;
     public static EffectController m_instance = null;
     [HeaderAttribute("Background music")]
     public AudioClip happyMusic = null;
@@ -53,6 +55,14 @@ public class EffectController : MonoBehaviour
     {
         AudioSource SE = Instantiate(m_instance.flowerTimberSE, sourcePos);
         GameObject effect = (GameObject)Instantiate(m_instance.flowerTimber, sourcePos);
+
+        Destroy(SE, duration);
+        Destroy(effect, duration);
+    }
+    public static void PlayLionEatEffect(Transform sourcePos, float duration)
+    {
+        AudioSource SE = Instantiate(m_instance.lionEatSE, sourcePos);
+        GameObject effect = (GameObject)Instantiate(m_instance.lionEat, sourcePos);
 
         Destroy(SE, duration);
         Destroy(effect, duration);

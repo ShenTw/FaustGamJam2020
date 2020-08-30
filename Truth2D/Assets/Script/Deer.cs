@@ -121,7 +121,7 @@ public class Deer : MonoBehaviour
         if (other.tag == "Lion")
         {
             Debug.Log("hitLion");
-            EffectController.PlayFlowerTimberEffect(transform , 2);
+            EffectController.PlayLionEatEffect(transform , 2);
 
         }
     }
