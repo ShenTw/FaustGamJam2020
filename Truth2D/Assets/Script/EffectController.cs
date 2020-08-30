@@ -18,6 +18,12 @@ public class EffectController : MonoBehaviour
     public AudioClip peaceMusic = null;
     private AudioSource myBGM = null;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(m_instance == null)
+            m_instance = this;
+    }
     void Start()
     {
         m_instance = this;
