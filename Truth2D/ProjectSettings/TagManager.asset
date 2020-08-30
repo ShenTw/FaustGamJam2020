@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pick Up
+  - Seed
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - 
   - Ground
   - Background
-  - 
-  - 
-  - 
+  - Player
+  - PlayerBullet
+  - EnemyBullet
   - 
   - 
   - 
