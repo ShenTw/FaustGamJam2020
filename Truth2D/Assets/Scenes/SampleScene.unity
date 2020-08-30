@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &19017385
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &41815952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -471,7 +471,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 28
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1349,6 +1349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isNotShot
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051334708211192292, guid: 2f946006284a7a54789a19f686bf6453,
+        type: 3}
+      propertyPath: cameraheight
+      value: 2.57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f946006284a7a54789a19f686bf6453, type: 3}
