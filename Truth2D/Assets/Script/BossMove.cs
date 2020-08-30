@@ -8,6 +8,8 @@ public class BossMove : MonoBehaviour
 
     public GameObject bullet;
 
+    public float HP = 0;
+
     //動畫Call
     public void OnAttack()
     {
@@ -37,6 +39,20 @@ public class BossMove : MonoBehaviour
         {
             timer = 5;
             m_Animator.SetTrigger("Attack");
+
+            //UIManager.instance.CreateTalker("鄵襙鄵襙操鄵襙操鄵襙操鄵襙操鄵襙操鄵襙操鄵襙操操" , gameObject , 2);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "PlayerBullet")
+        {
+            Debug.Log("Boss被打");
+            Destroy(other.gameObject);
+            HP += 10;
+
+            HUDManager.instance.ChangeBossHP(HP / 100);
         }
     }
 }

@@ -67,12 +67,17 @@ public class PlayerController : MonoBehaviour {
     {
         if(Input.GetMouseButtonDown(1))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if(hit.collider != null && hit.transform.tag == "Seed")
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100.0f))
             {
-                seeding.MouseClick();
+                if (hit.collider != null && hit.transform.tag == "Seed")
+                {
+                    seeding.MouseClick();
+                }
             }
+
+            
         }
         
     }
@@ -181,14 +186,20 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
-            Vector2 direction = myPos - target;
-            direction.Normalize();
-            GameObject projectile = (GameObject)Instantiate(bullet, myPos, Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().velocity = - direction * 20;
+            Vector3 targetPos = GetWorldPositionOnPlane(Input.mousePosition , 0);
+            GameObject projectile = (GameObject)Instantiate(bullet, transform.position , Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().velocity = (targetPos - transform.position).normalized * 20;
             Destroy(projectile, 2);
         }
+    }
+
+    public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 
 }
