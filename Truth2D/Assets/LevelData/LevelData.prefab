@@ -61,7 +61,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.099998, y: 13.289998, z: 0.2}
   m_Center: {x: -0.0000019073486, y: 0.0000038146973, z: 0}
---- !u!114 &503401150
+--- !u!114 &5275132772641944881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,12 +70,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2645394688529507704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab04473c1c549654eabd19aa9dd5c76d, type: 3}
+  m_Script: {fileID: 11500000, guid: ae3cc4dc2ef434f4e9f1ae9a95755280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Water
+  UnitName: 
   UnitTags:
-  - DoController
+  - Do
 --- !u!65 &1779956274
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5002070915047374845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c76b75336d7da4d99c466b8eb7e184, type: 3}
+  m_Script: {fileID: 11500000, guid: c8ca09fa6f86f0d43b7f3126c3f3472a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isAuto: 0
   KeyCodes: 
   useMouseRightClick: 1
   DoUnitTags:
-  - DoController
+  - Do
   DoMaxCount: 3
   doCount: 0
   ShowMaxCount: 3
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8026663066448585479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c76b75336d7da4d99c466b8eb7e184, type: 3}
+  m_Script: {fileID: 11500000, guid: c8ca09fa6f86f0d43b7f3126c3f3472a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isAuto: 0
