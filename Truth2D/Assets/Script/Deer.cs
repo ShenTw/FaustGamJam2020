@@ -26,9 +26,16 @@ public class Deer : MonoBehaviour
         {
             if(!isToLion)
             {
-                if (Vector3.Distance(player.transform.position, transform.position) > 3)
+                Vector3 playerPos = player.transform.position;
+                if (isDeer)
                 {
-                    if (transform.position.x < player.transform.position.x)
+                    playerPos = new Vector3(player.transform.position.x , transform.position.y , transform.position.z);
+                }
+
+                if (Vector3.Distance(playerPos, transform.position) > 3)
+                {
+                    
+                    if (transform.position.x < playerPos.x)
                     {
                         if (transform.localScale.x > 0)
                         {
@@ -36,7 +43,7 @@ public class Deer : MonoBehaviour
                         }
                         transform.position += new Vector3(Time.deltaTime * 5, 0, 0);
                     }
-                    if (transform.position.x > player.transform.position.x)
+                    if (transform.position.x > playerPos.x)
                     {
                         if (transform.localScale.x < 0)
                         {
@@ -82,7 +89,7 @@ public class Deer : MonoBehaviour
 
         else
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 3)
+            if (Vector3.Distance(player.transform.position, transform.position) < 1)
             {
                 isSpecialRabbit = false;
             }
@@ -95,7 +102,7 @@ public class Deer : MonoBehaviour
             if(lionTimer <=0)
             {
                 lionTimer = 5;
-                UIManager.instance.CreateTalker("陪我玩陪我玩陪我玩陪我玩" , gameObject , 4);
+                UIManager.instance.CreateTalker("陪我玩陪我玩陪我玩陪我玩" , gameObject , 5);
             }
         }
         
@@ -112,6 +119,7 @@ public class Deer : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 9, rb.velocity.z);
     }
 
+    bool isTouchLion;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -121,6 +129,12 @@ public class Deer : MonoBehaviour
 
         if (other.tag == "Lion")
         {
+            if(isTouchLion)
+            {
+                return;
+            }
+            isTouchLion = true;
+            PlayManager.instance.LionGetRabbit();
             Debug.Log("hitLion");
             EffectController.PlayLionEatEffect(transform , 2);
 

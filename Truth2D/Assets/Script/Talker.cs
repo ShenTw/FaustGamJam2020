@@ -17,7 +17,7 @@ public class Talker : MonoBehaviour
     public void Init(string _string , GameObject _target , float destoryTimer = 3)
     {
         isInit = true;
-
+        gameObject.SetActive(true);
         m_Text.text = _string;
         target = _target;
 
@@ -34,7 +34,7 @@ public class Talker : MonoBehaviour
         isShow = true;
         m_Text.enabled = true;
         m_Image.enabled = true;
-        gameObject.SetActive(true);
+        
     }
 
     private void Update()

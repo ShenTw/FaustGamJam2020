@@ -51,4 +51,22 @@ public class PlayManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    int countRabbit = 0;
+    public void LionGetRabbit()
+    {
+        countRabbit += 1;
+
+        if(countRabbit == 3)
+        {
+            StartCoroutine(ClearStage2());
+        }
+    }
+
+    IEnumerator ClearStage2()
+    {
+        yield return new WaitForSeconds(1);
+        stage += 1;
+        ReGame();
+    }
 }
