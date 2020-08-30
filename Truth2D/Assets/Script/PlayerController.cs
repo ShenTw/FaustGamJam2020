@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour {
     public float camerFollowSpeed = 1f;
     public GameObject diePos;
     public GameObject bullet;
-
-    public int stage;
     
     [HeaderAttribute("Ground checker")]
     #region ground checker
@@ -46,8 +44,6 @@ public class PlayerController : MonoBehaviour {
         //Calling Components\\
  
         rb = GetComponent<Rigidbody> ();
-
-        stage = 1; 
     }
  
     //Initiate at a set time\\
@@ -165,8 +161,15 @@ public class PlayerController : MonoBehaviour {
     }   
     void Jump() 
     { 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+
+            PlayManager.instance.m_Deer.OnJump();
+        }
+            
+
+        rb.velocity -= new Vector3(0 , Time.deltaTime * 10 ,0);
     }
 
     IEnumerator ReBorn()
@@ -179,7 +182,7 @@ public class PlayerController : MonoBehaviour {
     bool isDie = false;
     void CheckDie()
     {
-        if(stage == 1)
+        if(PlayManager.instance.stage == 0)
         {
             if(transform.position.y < -9)
             {

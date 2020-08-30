@@ -10,10 +10,41 @@ public class PlayManager : MonoBehaviour
     public PlayerController pc;
     public BossMove boss;
 
+    public GameObject HUDCanvas;
+
+    public GameObject stageObject0;
+    public GameObject stageObject1;
+
+    public Deer m_Deer;
+    public Deer m_Lion;
+
+    public int stage = 0;
+
     private void Awake()
     {
         if(instance == null)
             instance = this;
+
+    }
+
+    private void Start()
+    {
+        stage = 1;
+
+        if (stage == 0)
+        {
+            stageObject0.SetActive(true);
+        }
+        if (stage == 1)
+        {
+            stageObject1.SetActive(true);
+        }
+
+        if (stage != 2)
+        {
+            HUDCanvas.SetActive(false);
+            boss.gameObject.SetActive(false);
+        }
     }
 
     public void ReGame()

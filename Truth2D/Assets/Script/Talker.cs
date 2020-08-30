@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Talker : MonoBehaviour
 {
     public Text m_Text;
+    public Image m_Image;
     public RectTransform canvasRectT;
     public Camera m_Camera;
 
@@ -15,14 +16,25 @@ public class Talker : MonoBehaviour
 
     public void Init(string _string , GameObject _target , float destoryTimer = 3)
     {
-
-        gameObject.SetActive(true);
         isInit = true;
 
         m_Text.text = _string;
         target = _target;
-        
+
+        m_Text.enabled = false;
+        m_Image.enabled = false;
+
+
         Destroy(gameObject , destoryTimer);
+    }
+
+    bool isShow = false;
+    void Show()
+    {
+        isShow = true;
+        m_Text.enabled = true;
+        m_Image.enabled = true;
+        gameObject.SetActive(true);
     }
 
     private void Update()
@@ -31,6 +43,11 @@ public class Talker : MonoBehaviour
         if (target == null) return;
 
         transform.position = m_Camera.WorldToScreenPoint(target.transform.position);
+
+        if(!isShow)
+        {
+            Show();
+        }
 
     }
 }
