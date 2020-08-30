@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour {
             playerTransform.localScale = new Vector3(- playerTransform.localScale.x, playerTransform.localScale.y, playerTransform.localScale.z);
         }
     }
+
+    int hp = 0;
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.CompareTag ("Pick Up"))
@@ -144,6 +146,12 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("玩家被打到");
             Destroy(other.gameObject);
+            hp += 1;
+            if(hp >= 3)
+            {
+                PlayManager.instance.ReGame();
+            }
+
         }
     }
     void CheckIfGrounded() 

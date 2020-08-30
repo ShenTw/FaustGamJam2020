@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 1296002350}
   bullet: {fileID: 7565080164860255019, guid: 08cedf37da9c0084fb567714669934e1, type: 3}
+  HP: 0
 --- !u!212 &1296002352
 SpriteRenderer:
   m_ObjectHideFlags: 0
