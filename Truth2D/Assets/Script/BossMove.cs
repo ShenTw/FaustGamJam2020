@@ -20,10 +20,9 @@ public class BossMove : MonoBehaviour
             float randomX = Random.Range(-2, 2);
             float randomY = Random.Range(-2, 2);
             Vector2 myPos = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
-            Vector2 direction = myPos - target;
-            direction.Normalize();
+
             GameObject projectile = (GameObject)Instantiate(bullet, myPos, Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().velocity = -direction * 10;
+
             Destroy(projectile, 2);
         }
 
