@@ -9,6 +9,7 @@ public class Deer : MonoBehaviour
     public bool isLion;
     public bool isSpecialRabbit;
     public bool isRabbit;
+    public bool isDeer;
 
     private void Start()
     {
@@ -49,7 +50,7 @@ public class Deer : MonoBehaviour
 
             if(isRabbit)
             {
-                if (Vector3.Distance(PlayManager.instance.m_Lion.transform.position, transform.position) < 8)
+                if (Vector3.Distance(PlayManager.instance.m_Lion.transform.position, transform.position) < 10)
                 {
                     isToLion = true;
                 }
@@ -108,7 +109,7 @@ public class Deer : MonoBehaviour
     IEnumerator OnJumpWait()
     {
         yield return new WaitForSeconds(0.5f);
-        rb.velocity = new Vector3(rb.velocity.x, 8, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x, 9, rb.velocity.z);
     }
 
     private void OnTriggerEnter(Collider other)

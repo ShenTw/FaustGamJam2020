@@ -639,9 +639,9 @@ GameObject:
   - component: {fileID: 222122575}
   - component: {fileID: 222122574}
   - component: {fileID: 222122573}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: rabbit (2)
-  m_TagString: Untagged
+  m_TagString: Rabbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,6 +661,7 @@ MonoBehaviour:
   isLion: 0
   isSpecialRabbit: 1
   isRabbit: 1
+  isDeer: 0
 --- !u!54 &222122574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -752,7 +753,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &317559547
 GameObject:
@@ -953,7 +954,7 @@ Transform:
   - {fileID: 904610244}
   - {fileID: 1759945967}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370026039
 GameObject:
@@ -968,9 +969,9 @@ GameObject:
   - component: {fileID: 370026042}
   - component: {fileID: 370026041}
   - component: {fileID: 370026040}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: rabbit
-  m_TagString: Untagged
+  m_TagString: Rabbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -990,6 +991,7 @@ MonoBehaviour:
   isLion: 0
   isSpecialRabbit: 0
   isRabbit: 1
+  isDeer: 0
 --- !u!54 &370026041
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1081,7 +1083,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444593815
 GameObject:
@@ -1420,9 +1422,9 @@ GameObject:
   - component: {fileID: 628647878}
   - component: {fileID: 628647877}
   - component: {fileID: 628647876}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: rabbit (1)
-  m_TagString: Untagged
+  m_TagString: Rabbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,6 +1444,7 @@ MonoBehaviour:
   isLion: 0
   isSpecialRabbit: 0
   isRabbit: 1
+  isDeer: 0
 --- !u!54 &628647877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1533,7 +1536,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630978098
 GameObject:
@@ -1570,6 +1573,7 @@ MonoBehaviour:
   isLion: 1
   isSpecialRabbit: 0
   isRabbit: 0
+  isDeer: 0
 --- !u!54 &630978100
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1661,7 +1665,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &644233494
 PrefabInstance:
@@ -1863,7 +1867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904610243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.5, y: 5.7, z: 0}
+  m_LocalPosition: {x: 8.63, y: 5.62, z: 0}
   m_LocalScale: {x: 0.8653125, y: 1.0046647, z: 1}
   m_Children:
   - {fileID: 1332192602}
@@ -2001,6 +2005,75 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1014980624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.4113116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7197196
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.461227
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630447, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_Name
+      value: EffectController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b857ed86be509345a88f88c58e595a9, type: 3}
 --- !u!1 &1117579990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117579990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.71, z: 0}
+  m_LocalPosition: {x: -0.7, y: -2.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 108445094}
@@ -2132,7 +2205,7 @@ RectTransform:
   m_Children:
   - {fileID: 913393657}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2828,7 +2901,7 @@ RectTransform:
   m_Children:
   - {fileID: 64666496}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4190,7 +4263,7 @@ Transform:
   m_LocalScale: {x: 1.2241, y: 1.2241, z: 1.2241}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2043478047
 Rigidbody:
@@ -4223,6 +4296,7 @@ MonoBehaviour:
   isLion: 0
   isSpecialRabbit: 0
   isRabbit: 0
+  isDeer: 0
 --- !u!1 &2053407682
 GameObject:
   m_ObjectHideFlags: 0
