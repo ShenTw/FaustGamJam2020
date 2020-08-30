@@ -50,6 +50,14 @@ public class PlayManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown("r"))
+        {
+            ReGame();
+        }
+    }
+
     public void ReGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
