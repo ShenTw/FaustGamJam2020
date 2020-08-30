@@ -35,9 +35,10 @@ public class PlayerController : MonoBehaviour {
  
     private bool faceRight = true;
     private Rigidbody rb;
- 
+
     //Initiate at first frame of game\\
- 
+
+
     void Start ()
     {
         //Calling Components\\
@@ -129,6 +130,12 @@ public class PlayerController : MonoBehaviour {
         {
             other.gameObject.SetActive (false);
         }
+
+        if(other.tag == "EnemyBullet")
+        {
+            Debug.Log("玩家被打到");
+            Destroy(other.gameObject);
+        }
     }
     void CheckIfGrounded() 
     { 
@@ -179,4 +186,5 @@ public class PlayerController : MonoBehaviour {
             Destroy(projectile, 2);
         }
     }
+
 }
