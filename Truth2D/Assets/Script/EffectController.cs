@@ -18,6 +18,7 @@ public class EffectController : MonoBehaviour
     [HeaderAttribute("Background music")]
     public AudioClip happyMusic = null;
     public AudioClip peaceMusic = null;
+    public AudioClip sadMusic = null;
     private AudioSource myBGM = null;
     // Start is called before the first frame update
 
@@ -30,6 +31,12 @@ public class EffectController : MonoBehaviour
     {
         m_instance = this;
         myBGM = gameObject.GetComponent<AudioSource>();
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Ending")
+        {
+            myBGM.clip = sadMusic;
+            myBGM.Play();
+        }
     }
 
     // Update is called once per frame

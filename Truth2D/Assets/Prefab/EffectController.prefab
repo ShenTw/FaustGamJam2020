@@ -62,6 +62,7 @@ MonoBehaviour:
     type: 3}
   happyMusic: {fileID: 8300000, guid: 632299b3fc927b44a9429a4beba3e017, type: 3}
   peaceMusic: {fileID: 8300000, guid: 720b4c05b9d0cdc4a9cf96d2b831cbf3, type: 3}
+  sadMusic: {fileID: 8300000, guid: 986d4e5054d05ca498cfd9121e1c693c, type: 3}
 --- !u!82 &5733115314443630442
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76,7 +77,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

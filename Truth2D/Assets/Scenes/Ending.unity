@@ -301,6 +301,7 @@ MonoBehaviour:
   seeding: {fileID: 21300000, guid: cf611d5ec059d3440926565107359a08, type: 3}
   flower: {fileID: 21300000, guid: 6534132cf33731d4291214185d9010d6, type: 3}
   m_SeedType: 0
+  waterSplash: {fileID: 0}
 --- !u!65 &41815955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -366,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Text: {fileID: 524690462}
+  m_Image: {fileID: 0}
   canvasRectT: {fileID: 1448696650}
   m_Camera: {fileID: 519420031}
 --- !u!114 &64666498
@@ -836,6 +838,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236539583}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &274631810
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.4113116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7197196
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.461227
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630445, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733115314443630447, guid: 1b857ed86be509345a88f88c58e595a9,
+        type: 3}
+      propertyPath: m_Name
+      value: EffectController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b857ed86be509345a88f88c58e595a9, type: 3}
 --- !u!1001 &327937728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2895,7 +2966,6 @@ MonoBehaviour:
   camerFollowSpeed: 1
   diePos: {fileID: 1855509036}
   bullet: {fileID: 7565080164860255019, guid: 4287fed016f75b046b12b62364e53779, type: 3}
-  stage: 0
   isGroundedChecker: {fileID: 1582258192}
   checkGroundRadius: 0.05
   groundLayer:
@@ -3496,6 +3566,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1641498977}
   boss: {fileID: 0}
+  HUDCanvas: {fileID: 0}
+  stageObject0: {fileID: 0}
+  stageObject1: {fileID: 0}
+  m_Deer: {fileID: 0}
+  m_Lion: {fileID: 0}
+  stage: 0
 --- !u!4 &2077044950
 Transform:
   m_ObjectHideFlags: 0
