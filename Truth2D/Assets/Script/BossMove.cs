@@ -37,6 +37,7 @@ public class BossMove : MonoBehaviour
         {
             timer = 5;
             m_Animator.SetTrigger("Attack");
+            UIManager.instance.CreateTalker("鄵襙鄵襙操鄵襙操鄵襙操鄵襙操鄵襙操鄵襙操鄵襙操操" , gameObject , 2);
         }
     }
 }
