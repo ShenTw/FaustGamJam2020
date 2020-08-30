@@ -8,6 +8,8 @@ public class Controller : MonoBehaviour
     public List<KeyCode> KeyCodes = new List<KeyCode>();
     public bool useMouseRightClick = true;
     public List<string> DoUnitTags = new List<string>();
+    public int DoMaxCount = 1;
+    public int doCount = 0;
 
     public virtual void Awake()
     {
@@ -48,7 +50,7 @@ public class Controller : MonoBehaviour
             {
                 if (unit.UnitTags.Contains(unitTag))
                 {
-                    Do();
+                    CheckDo();
                     return true;
                 }
             }
@@ -61,7 +63,7 @@ public class Controller : MonoBehaviour
     {
         if(isAuto || CheckKeys() || (useMouseRightClick && Input.GetMouseButtonDown(0)) )
         {
-            Do();
+            CheckDo();
         }
     }
 
@@ -76,6 +78,15 @@ public class Controller : MonoBehaviour
         }
 
         return false;
+    }
+
+    public virtual void CheckDo()
+    {
+        if(DoMaxCount != -1 && DoMaxCount > doCount)
+        {
+            Do();
+            doCount++;
+        }
     }
 
     public virtual void Do()

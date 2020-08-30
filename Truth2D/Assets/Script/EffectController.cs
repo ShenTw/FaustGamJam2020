@@ -12,16 +12,31 @@ public class EffectController : MonoBehaviour
     public AudioSource flowerGrownMaxSE = null;
     public GameObject flowerTimber = null;
     public AudioSource flowerTimberSE = null;
+    public GameObject lionEat = null;
+    public AudioSource lionEatSE = null;
     public static EffectController m_instance = null;
     [HeaderAttribute("Background music")]
     public AudioClip happyMusic = null;
     public AudioClip peaceMusic = null;
+    public AudioClip sadMusic = null;
     private AudioSource myBGM = null;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(m_instance == null)
+            m_instance = this;
+    }
     void Start()
     {
         m_instance = this;
         myBGM = gameObject.GetComponent<AudioSource>();
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Ending")
+        {
+            myBGM.clip = sadMusic;
+            myBGM.Play();
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +62,14 @@ public class EffectController : MonoBehaviour
     {
         AudioSource SE = Instantiate(m_instance.flowerTimberSE, sourcePos);
         GameObject effect = (GameObject)Instantiate(m_instance.flowerTimber, sourcePos);
+
+        Destroy(SE, duration);
+        Destroy(effect, duration);
+    }
+    public static void PlayLionEatEffect(Transform sourcePos, float duration)
+    {
+        AudioSource SE = Instantiate(m_instance.lionEatSE, sourcePos);
+        GameObject effect = (GameObject)Instantiate(m_instance.lionEat, sourcePos);
 
         Destroy(SE, duration);
         Destroy(effect, duration);
