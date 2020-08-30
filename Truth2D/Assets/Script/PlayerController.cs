@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour {
     public Seeding seeding = null;
 
     public Camera m_Camera;
+    public float cameraheight = 0f;
+    public float camerFollowSpeed = 1f;
     public GameObject diePos;
     public GameObject bullet;
 
@@ -78,7 +80,9 @@ public class PlayerController : MonoBehaviour {
     void MoveCamera()
     {
         if (isDie) return;
-        m_Camera.transform.position = Vector3.Lerp(m_Camera.transform.position , new Vector3(transform.position.x, transform.position.y, m_Camera.transform.position.z) , 1f);
+        m_Camera.transform.position = Vector3.Lerp(m_Camera.transform.position ,
+                                    new Vector3(transform.position.x, transform.position.y + cameraheight, m_Camera.transform.position.z) ,
+                                    camerFollowSpeed * Time.deltaTime);
 
         if(Input.mouseScrollDelta.y > 0 && m_Camera.orthographicSize > 5)
         {
