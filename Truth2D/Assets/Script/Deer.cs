@@ -110,6 +110,7 @@ public class Deer : MonoBehaviour
 
     public void OnJump()
     {
+        if (PlayManager.instance.stage != 1) return;
         StartCoroutine(OnJumpWait());
     }
 

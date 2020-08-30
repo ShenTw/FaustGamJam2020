@@ -14,6 +14,7 @@ public class PlayManager : MonoBehaviour
 
     public GameObject stageObject0;
     public GameObject stageObject1;
+    public GameObject stageObject2;
 
     public Deer m_Deer;
     public Deer m_Lion;
@@ -29,7 +30,7 @@ public class PlayManager : MonoBehaviour
 
     private void Start()
     {
-        stage = 1;
+        stage = 2;
 
         if (stage == 0)
         {
@@ -38,6 +39,10 @@ public class PlayManager : MonoBehaviour
         if (stage == 1)
         {
             stageObject1.SetActive(true);
+        }
+        if (stage == 2)
+        {
+            stageObject2.SetActive(true);
         }
 
         if (stage != 2)
@@ -68,5 +73,10 @@ public class PlayManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         stage += 1;
         ReGame();
+    }
+
+    public void ClearBoss()
+    {
+        stage += 1;
     }
 }
