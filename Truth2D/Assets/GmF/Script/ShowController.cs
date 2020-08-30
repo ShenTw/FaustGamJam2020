@@ -11,6 +11,7 @@ public class ShowController : Controller
     bool onShow = false;
     public GameObject ShowGameObject = null;
 
+
     public override void Awake()
     {
         base.Awake();
@@ -28,8 +29,14 @@ public class ShowController : Controller
         Show();
     }
 
+
     public virtual void Show()
     {
+        if(ShowGameObject == null)
+        {
+            return;
+        }
+
         if (onShow)
         {
             return;

@@ -41,7 +41,7 @@ public class ShowAnimatorController : ShowController
             return;
         }
 
-        if(WattingAnimPlayEnd && animator.GetCurrentAnimatorStateInfo(0).IsName(AnimationNames[showAnimationNameIndex]))
+        if(WattingAnimPlayEnd && !animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
             ///等待目前動畫結束
             return;
@@ -54,6 +54,22 @@ public class ShowAnimatorController : ShowController
         {
             animator.Play(AnimationNames[showAnimationNameIndex]);
         }
+        showAnimationNameIndex++;
         showAnimationNameIndex = Mathf.Min(showAnimationNameIndex, Mathf.Max(0, AnimationNames.Count - 1));
+    }
+
+    public override void CheckDo()
+    {
+        if (WattingAnimPlayEnd && !animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            ///等待目前動畫結束
+            return;
+        }
+
+        if (DoMaxCount != -1 && DoMaxCount >= doCount)
+        {
+            Do();
+            doCount++;
+        }
     }
 }
