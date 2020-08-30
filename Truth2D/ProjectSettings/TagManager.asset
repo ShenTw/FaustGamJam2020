@@ -11,6 +11,7 @@ TagManager:
   - PlayerBullet
   - Lion
   - Rabbit
+  - Stage1
   layers:
   - Default
   - TransparentFX

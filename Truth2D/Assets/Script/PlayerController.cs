@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 // 1. Player Move: 
 // 2. Player Jump:
@@ -27,7 +28,9 @@ public class PlayerController : MonoBehaviour {
     public float checkGroundRadius = 0.5f; 
     public LayerMask groundLayer;
     [SerializeField]
-    bool isGrounded = false; 
+    bool isGrounded = false;
+
+    public bool isNotShot;
 
     #endregion
  
@@ -149,6 +152,11 @@ public class PlayerController : MonoBehaviour {
             }
 
         }
+
+        if (other.tag == "Stage1")
+        {
+            SceneManager.LoadScene("Yueh");
+        }
     }
     void CheckIfGrounded() 
     { 
@@ -165,7 +173,8 @@ public class PlayerController : MonoBehaviour {
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
 
-            PlayManager.instance.m_Deer.OnJump();
+            if(PlayManager.instance != null)
+                PlayManager.instance.m_Deer.OnJump();
         }
             
 
@@ -182,6 +191,7 @@ public class PlayerController : MonoBehaviour {
     bool isDie = false;
     void CheckDie()
     {
+        if (PlayManager.instance == null) return;
         if(PlayManager.instance.stage == 0)
         {
             if(transform.position.y < -9)
@@ -195,6 +205,7 @@ public class PlayerController : MonoBehaviour {
 
     void Shoot()
     {
+        if (isNotShot) return;
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 targetPos = GetWorldPositionOnPlane(Input.mousePosition , 0);

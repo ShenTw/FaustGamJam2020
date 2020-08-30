@@ -30,7 +30,7 @@ public class PlayManager : MonoBehaviour
 
     private void Start()
     {
-        stage = 2;
+        stage = 1;
 
         if (stage == 0)
         {
@@ -71,12 +71,12 @@ public class PlayManager : MonoBehaviour
     IEnumerator ClearStage2()
     {
         yield return new WaitForSeconds(1);
-        stage += 1;
+        stage = 2;
         ReGame();
     }
 
     public void ClearBoss()
     {
-        stage += 1;
+        stage  = 3;
     }
 }
