@@ -30,8 +30,6 @@ public class PlayManager : MonoBehaviour
 
     private void Start()
     {
-        stage = 1;
-
         if (stage == 0)
         {
             stageObject0.SetActive(true);
@@ -71,12 +69,11 @@ public class PlayManager : MonoBehaviour
     IEnumerator ClearStage2()
     {
         yield return new WaitForSeconds(1);
-        stage = 2;
-        ReGame();
+        SceneManager.LoadScene("Yueh2");
     }
 
     public void ClearBoss()
     {
-        stage  = 3;
+        SceneManager.LoadScene("Ending");
     }
 }

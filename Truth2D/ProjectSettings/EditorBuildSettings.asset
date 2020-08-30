@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Yueh.unity
     guid: 3f54c2a9ed3b45c4492eb1e235a06184
   - enabled: 1
+    path: Assets/Scenes/Yueh2.unity
+    guid: bcbe5a3f59fbebd4cbcfa7920664adc8
+  - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: c79eedf1147d2654a92da463fc3c6132
   m_configObjects: {}
