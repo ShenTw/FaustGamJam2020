@@ -197,21 +197,32 @@ public class PlayerController : MonoBehaviour {
     void CheckDie()
     {
         if (PlayManager.instance == null) return;
-        if(PlayManager.instance.stage == 0)
+
+        if (PlayManager.instance.stage == 0)
         {
-            if(transform.position.y < -9)
+            if (transform.position.y < -9)
             {
-                if (isDie) return;
-                isDie = true;
-                StartCoroutine(ReBorn());
+                PlayManager.instance.ReGame();
             }
         }
+
+
 
         if (PlayManager.instance.stage == 1)
         {
             if (transform.position.y < -30)
             {
                 PlayManager.instance.ReGame();
+            }
+        }
+
+        if (PlayManager.instance.stage == 2)
+        {
+            if (transform.position.y < -9)
+            {
+                if (isDie) return;
+                isDie = true;
+                StartCoroutine(ReBorn());
             }
         }
     }

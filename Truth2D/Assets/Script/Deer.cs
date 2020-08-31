@@ -106,7 +106,7 @@ public class Deer : MonoBehaviour
             if(lionTimer <=0)
             {
                 lionTimer = 5;
-                UIManager.instance.CreateTalker("陪我玩陪我玩陪我玩陪我玩" , gameObject , 5);
+                UIManager.instance.CreateTalker("陪我玩 陪我玩 陪我玩 陪我玩 陪我玩 陪我玩 陪我玩", gameObject , 5);
             }
         }
         
