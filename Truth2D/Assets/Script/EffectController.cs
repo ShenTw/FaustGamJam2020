@@ -14,6 +14,7 @@ public class EffectController : MonoBehaviour
     public AudioSource flowerTimberSE = null;
     public GameObject lionEat = null;
     public AudioSource lionEatSE = null;
+    public AudioSource jumpSE = null;
     public static EffectController m_instance = null;
     [HeaderAttribute("Background music")]
     public AudioClip happyMusic = null;
@@ -73,6 +74,13 @@ public class EffectController : MonoBehaviour
 
         Destroy(SE, duration);
         Destroy(effect, duration);
+    }
+
+    public static void PlayJumpEffect(Transform sourcePos, float duration)
+    {
+        AudioSource SE = Instantiate(m_instance.jumpSE, sourcePos);
+
+        Destroy(SE, duration);
     }
     public static void PlayHappyBGM()
     {

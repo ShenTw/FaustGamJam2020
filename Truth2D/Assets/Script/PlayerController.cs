@@ -32,12 +32,14 @@ public class PlayerController : MonoBehaviour {
 
     public bool isNotShot;
 
+
     #endregion
- 
+
     //Private Variables\\
- 
+
     private bool faceRight = true;
     private Rigidbody rb;
+    private float distToGround;
 
     //Initiate at first frame of game\\
 
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour {
         //Calling Components\\
  
         rb = GetComponent<Rigidbody> ();
+        distToGround = GetComponent<Collider>().bounds.extents.y;
     }
  
     //Initiate at a set time\\
@@ -166,14 +169,16 @@ public class PlayerController : MonoBehaviour {
             isGrounded = true; 
         else 
             isGrounded = false; 
-    }   
+    }
+
     void Jump() 
     { 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            EffectController.PlayJumpEffect(transform, 2);
 
-            if(PlayManager.instance != null)
+            if (PlayManager.instance != null)
                 PlayManager.instance.m_Deer.OnJump();
         }
             
@@ -199,6 +204,14 @@ public class PlayerController : MonoBehaviour {
                 if (isDie) return;
                 isDie = true;
                 StartCoroutine(ReBorn());
+            }
+        }
+
+        if (PlayManager.instance.stage == 1)
+        {
+            if (transform.position.y < -30)
+            {
+                PlayManager.instance.ReGame();
             }
         }
     }

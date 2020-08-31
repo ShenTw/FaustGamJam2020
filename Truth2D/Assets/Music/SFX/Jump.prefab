@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5733115314443630447
+--- !u!1 &2828827271807360210
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,77 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5733115314443630445}
-  - component: {fileID: 5733115314443630444}
-  - component: {fileID: 5733115314443630442}
+  - component: {fileID: 967081377643534296}
+  - component: {fileID: 2934251336423187074}
   m_Layer: 0
-  m_Name: EffectController
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5733115314443630445
+--- !u!4 &967081377643534296
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733115314443630447}
+  m_GameObject: {fileID: 2828827271807360210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4113116, y: -3.7197196, z: -5.461227}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5733115314443630444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733115314443630447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b471c8ac54afd439e0ff29ce48a61c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterDripEffectFront: {fileID: 2739223876577897464, guid: ec005691ff98a6541abde9c2b83869a1,
-    type: 3}
-  waterDripEffectBack: {fileID: 37930673764277672, guid: b2dfad72f23104c42b2ca177db7deadf,
-    type: 3}
-  waterDripSE: {fileID: 2934251336423187074, guid: 3a4f1c0abbdc63b4c8046618743f5ff7,
-    type: 3}
-  flowerGrown: {fileID: 0}
-  flowerGrownSE: {fileID: 0}
-  flowerGrownMaxSE: {fileID: 0}
-  flowerTimber: {fileID: 4031803564112677198, guid: 28b16a54c90eed24c9962c10f6676a3b,
-    type: 3}
-  flowerTimberSE: {fileID: 2934251336423187074, guid: 7b984d40e1100a6438e84810e36acdfa,
-    type: 3}
-  lionEat: {fileID: 6169033027635024331, guid: d128ad265f68027498d0a25d40f51b8f, type: 3}
-  lionEatSE: {fileID: 2934251336423187074, guid: f1a91afb10e279745bf9de8e889f618f,
-    type: 3}
-  jumpSE: {fileID: 2934251336423187074, guid: 52d6f46a41ae13e47948b43e9273e6f9, type: 3}
-  happyMusic: {fileID: 8300000, guid: 632299b3fc927b44a9429a4beba3e017, type: 3}
-  peaceMusic: {fileID: 8300000, guid: 720b4c05b9d0cdc4a9cf96d2b831cbf3, type: 3}
-  sadMusic: {fileID: 8300000, guid: 986d4e5054d05ca498cfd9121e1c693c, type: 3}
---- !u!82 &5733115314443630442
+--- !u!82 &2934251336423187074
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733115314443630447}
+  m_GameObject: {fileID: 2828827271807360210}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e94fe54a633827f4e868a4f6f1e577c5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ebfa944b3341ead408d42aed9ee17005, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

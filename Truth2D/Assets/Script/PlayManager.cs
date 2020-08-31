@@ -19,6 +19,8 @@ public class PlayManager : MonoBehaviour
     public Deer m_Deer;
     public Deer m_Lion;
 
+    public GameObject m_lionLoveGO;
+
     public int stage = 0;
 
     private void Awake()
@@ -66,9 +68,11 @@ public class PlayManager : MonoBehaviour
     int countRabbit = 0;
     public void LionGetRabbit()
     {
+        m_lionLoveGO.transform.GetChild(countRabbit).GetComponent<SpriteRenderer>().color = Color.white ;
+
         countRabbit += 1;
 
-        if(countRabbit == 3)
+        if (countRabbit == 3)
         {
             StartCoroutine(ClearStage2());
         }

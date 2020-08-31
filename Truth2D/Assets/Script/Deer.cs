@@ -11,6 +11,10 @@ public class Deer : MonoBehaviour
     public bool isRabbit;
     public bool isDeer;
 
+    public LayerMask groundLayer;
+
+    public Transform isGroundedChecker;
+
     private void Start()
     {
         player = PlayManager.instance.pc.gameObject;
@@ -117,7 +121,22 @@ public class Deer : MonoBehaviour
     IEnumerator OnJumpWait()
     {
         yield return new WaitForSeconds(0.5f);
-        rb.velocity = new Vector3(rb.velocity.x, 9, rb.velocity.z);
+
+        if(CheckIfGrounded())
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 9, rb.velocity.z);
+            EffectController.PlayJumpEffect(transform, 2);
+        }
+            
+    }
+
+    bool CheckIfGrounded()
+    {
+
+        Collider[] collider = Physics.OverlapSphere(isGroundedChecker.position, 0.5f, groundLayer);
+        if (collider.Length != 0) return true;
+
+        return false;
     }
 
     bool isTouchLion;

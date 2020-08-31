@@ -14,12 +14,21 @@ public class Talker : MonoBehaviour
     GameObject target;
     private Vector2 uiOffset;
 
-    public void Init(string _string , GameObject _target , float destoryTimer = 3)
+    public void Init(string _string, GameObject _target, float destoryTimer = 3)
     {
         isInit = true;
         gameObject.SetActive(true);
         m_Text.text = _string;
-        target = _target;
+        Transform tempTalker = _target.transform.Find("Talker");
+
+        if (tempTalker != null)
+        {
+            target = tempTalker.gameObject;
+        }
+        else
+        {
+            target = _target;
+        }
 
         m_Text.enabled = false;
         m_Image.enabled = false;
@@ -42,7 +51,7 @@ public class Talker : MonoBehaviour
         if (!isInit) return;
         if (target == null) return;
 
-        transform.position = m_Camera.WorldToScreenPoint(target.transform.position);
+        transform.position = m_Camera.WorldToScreenPoint(target.transform.position) ;
 
         if(!isShow)
         {
