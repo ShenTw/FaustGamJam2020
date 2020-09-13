@@ -78,8 +78,9 @@ public class BossMove : MonoBehaviour
 
         yield return new WaitForSeconds(3.2f);
         UIManager.instance.CreateTalker("重要．．的人？", PlayManager.instance.pc.gameObject, 3);
+        UIManager.instance.FadeOut();
 
-        yield return new WaitForSeconds(3.2f);
+        yield return new WaitForSeconds(5f);
         PlayManager.instance.ClearBoss();
     }
 

@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 // 2. Player Jump:
 // 3. Player 
 public class PlayerController : MonoBehaviour {
- 
+
     //Public Variables\\
+    public int GameNow = 0;
     public float jumpForce = 0.0f;
     public Transform playerTransform = null;
     public float speed = 1;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour {
  
         rb = GetComponent<Rigidbody> ();
         distToGround = GetComponent<Collider>().bounds.extents.y;
+        AudioListener.volume = 0.5f;
     }
  
     //Initiate at a set time\\
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour {
 
         if (other.tag == "Stage1")
         {
-            SceneManager.LoadScene("Yueh");
+            SceneManager.LoadScene("Yueh1");
         }
     }
     void CheckIfGrounded() 
@@ -173,6 +175,7 @@ public class PlayerController : MonoBehaviour {
 
     void Jump() 
     { 
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
@@ -196,19 +199,14 @@ public class PlayerController : MonoBehaviour {
     bool isDie = false;
     void CheckDie()
     {
-        if (PlayManager.instance == null) return;
-
-        if (PlayManager.instance.stage == 0)
+        if (GameNow == 0)
         {
             if (transform.position.y < -9)
             {
-                PlayManager.instance.ReGame();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
-
-
-
-        if (PlayManager.instance.stage == 1)
+        else if(GameNow == 1)
         {
             if (transform.position.y < -30)
             {
@@ -216,7 +214,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (PlayManager.instance.stage == 2)
+        else if (GameNow == 2)
         {
             if (transform.position.y < -9)
             {

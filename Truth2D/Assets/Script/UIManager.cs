@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject talkerGO;
 
+    public GameObject fadeoutGO;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -17,5 +19,10 @@ public class UIManager : MonoBehaviour
     {
         GameObject go =  Instantiate(talkerGO , transform) as GameObject;
         go.GetComponent<Talker>().Init(_string , _target , destoryTimer);
+    }
+
+    public void FadeOut()
+    {
+        fadeoutGO.SetActive(true);
     }
 }
